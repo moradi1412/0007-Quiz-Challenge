@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/style/style.css">
+ 
     <title>Coding Quiz Challenge</title>
 </head>
 
@@ -14,22 +15,29 @@
         <img src="./assets/img/stock-vector-quiz-logo-design-747383050.jpg" alt="logo" srcset="">
         <h1 href="/">Quiz Challenge</h1>
         <nav>
-            <h1 href="/">View HighScore</h1>
+            <a href="/">View HighScore</a>
         </nav>
     </header>
     <main>
-        <h2 id="count-down">Timer : 75</h2>
-        <section id="questionAnswer-content" class="question-content">
-            <div id='questions' class='questions'>Question</div>
-            <div id="answers" class="answers">
-                <button id="answer1" class="btn">answer1</button>
-                <button id="answer2" class="btn">answer2</button>
-                <button id="answer3" class="btn">answer3</button>
-                <button id="answer4" class="btn">answer4</button>
-            </div>
-
+        <!-- <h2 id="count-down">Timer : 75</h2> -->
+        <section id="questions-container" class="question-content">
+            <p id="rules">    
+                Answer the code-related questions with the time limit. 
+                There is a penality for the incorrect answers. you will lose 10
+                seconds for each incorrect answers. 
+            </p>
+        <div id="question" class="questions">Question</div>
+        <div id="answer-btns" class="btn hide">
+            <button class="btn">Answer 1</button>
+            <button class="btn">Answer 2</button>
+            <button class="btn">Answer 3</button>
+            <button class="btn">Answer 4</button>
+        </div>
+              <div class="control"> 
+        <button id="start-Quiz" class="btn">Start Quiz</button>
+        <button id="next-btn" class="btn hide">next</button>
         </section>
-
+        <script src="./assets/javascript/java.js"></script>
 
     </main>
 

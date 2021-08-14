@@ -27,13 +27,13 @@ header img {
     width: 15%;
     height: 15%;
 }
-
+/* timer */
 main h2 {
     text-align: right;
     color: #FF6A3D;
     font-size: medium;
 }
-
+/* question content section */
 section {
     color: #FFFFFF;
     display: block;
@@ -50,7 +50,7 @@ section {
     display: block;
     padding: 10px 10px;
     border-radius: 15px;
-    background-color: azure;
+    /* background-color: azure; */
     align-content: center;
     text-align: center;
     justify-content: space-between;
@@ -62,4 +62,8 @@ section {
     font-size: 3vw;
     text-align: center;
     margin-top: 0;
+}
+
+.hide {
+    display: none;
 }
