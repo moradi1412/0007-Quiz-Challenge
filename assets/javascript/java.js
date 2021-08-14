@@ -1,5 +1,4 @@
 const startButton = document.getElementById('start-Quiz');
-const nextButton = document.getElementById('next-btn');
 //const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-btns');
@@ -44,7 +43,6 @@ function showQuestion(question) {
 
 function resetState() {
  clearStatusClass(document.body)
-  nextButton.classList.add('hide')
   while (answerButtonsElement.firstChild) {
     answerButtonsElement.removeChild(answerButtonsElement.firstChild)
   }
@@ -64,7 +62,7 @@ setStatusClass(button, button.dataset.correct)
     currentQuestionIndex++
     setNextQuestion()
   } else {
- console.log('game ended'); 
+ console.log('game ended');
   }
  }
 
