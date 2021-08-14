@@ -111,7 +111,7 @@ const questions = [
   {
     question: 'Choose the server-side JavaScript object?',
     answers: [
-        { text: 'FileUpLoad', correct: true },
+        { text: 'FileUpLoad', correct:true },
         { text: 'Function', correct: false },
         { text: 'File', correct: false },
         { text: 'Date', correct: false }
