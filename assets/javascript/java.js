@@ -4,18 +4,16 @@ const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-btns');
 const rules = document.getElementById('rules'); 
 
-let shuffledQuestions, currentQuestionIndex
+let shuffledQuestions, currentQuestionIndex;
 
-startButton.addEventListener('click', startGame)
-//nextButton.addEventListener('click', () => {
-  
-//
+startButton.addEventListener('click', startGame);
+
 
 function startGame() {
   startButton.classList.add('hide');
   rules.classList.add('hide'); 
-  shuffledQuestions = questions.sort(() => Math.random() - .5)
-  currentQuestionIndex = 0
+  shuffledQuestions = questions.sort(() => Math.random() - .5);
+  currentQuestionIndex = 0;
   questionElement.classList.remove('hide');
   answerButtonsElement.classList.remove('hide');
   setNextQuestion()
@@ -49,10 +47,10 @@ function resetState() {
 };
 
  function selectAnswer(e) {
-const selectedButton = e.target
+const selectedButton = e.target;
 console.log(selectedButton); 
-const correct = selectedButton.dataset.correct
-setStatusClass(document.body, correct)
+const correct = selectedButton.dataset.correct;
+setStatusClass(document.body, correct);
 Array.from(answerButtonsElement.children).forEach(button => {
 setStatusClass(button, button.dataset.correct)
 })
@@ -111,7 +109,7 @@ const questions = [
   {
     question: 'Choose the server-side JavaScript object?',
     answers: [
-        { text: 'FileUpLoad', correct:true },
+        { text: 'fileupload', correct:true },
         { text: 'Function', correct: false },
         { text: 'File', correct: false },
         { text: 'Date', correct: false }
