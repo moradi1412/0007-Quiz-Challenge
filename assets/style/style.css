@@ -69,6 +69,21 @@ section {
     margin-top: 0;
 }
 
+.player-label {
+    padding: 5px; 
+    font-size: 25px ;
+}
+
+.player-input {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 7px 8px;
+    border: 1px solid black; 
+    font-size: 16px;
+    height: 35px;
+
+}
+
 .hide {
     display: none;
 }

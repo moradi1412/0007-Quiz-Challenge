@@ -1,8 +1,13 @@
 const startButton = document.getElementById('start-Quiz');
-//const questionContainerElement = document.getElementById('question-container')
+const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-btns');
 const rules = document.getElementById('rules'); 
+const nameLabel = document.getElementById ('player-info'); 
+const submitbtn = document.getElementById("submitBtn"); 
+
+
+
 
 let shuffledQuestions, currentQuestionIndex;
 var score= 0; 
@@ -61,10 +66,13 @@ if (selectedButton === "true") {
     currentQuestionIndex++
     setNextQuestion()
   } else {
-    questionElement.innerHTML =  "you are score is " + score + " out of " +  questions.length;  
- answerButtonsElement.classList.add("hide"); 
-  }
+    answerButtonsElement.classList.add("hide");  
+    questionElement.innerHTML = "All done" + "<br>" + "you are score is " + score + " out of " +  questions.length;  
+    nameLabel.classList.remove("hide");    
+   
+   
  }
+};
 
 function setStatusClass(element, correct) {
   clearStatusClass(element)
@@ -78,7 +86,14 @@ function setStatusClass(element, correct) {
 function clearStatusClass(element) {
   element.classList.remove('correct')
   element.classList.remove('wrong')
-}
+}; 
+
+submitbtn.addEventListener('click', () => {     
+  var playerName = document.querySelector("#player_name").value; 
+  var finalscore = score; 
+  localStorage.setItem('playerName', playerName);
+  localStorage.setItem('finalscore', finalscore);
+}); 
 
 const questions = [
   {
