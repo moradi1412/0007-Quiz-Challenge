@@ -5,6 +5,7 @@ const answerButtonsElement = document.getElementById('answer-btns');
 const rules = document.getElementById('rules'); 
 
 let shuffledQuestions, currentQuestionIndex;
+var score= 0; 
 
 startButton.addEventListener('click', startGame);
 
@@ -29,13 +30,11 @@ function showQuestion(question) {
   questionElement.innerText = question.question
   question.answers.forEach(answer => {
       const button = document.createElement('button')
-      button.innerText = answer.text
-      button.classList.add('btn')
-   if (answer.correct) {
-     button.dataset.correct = answer.correct
-    }
-    button.addEventListener('click', selectAnswer)
-    answerButtonsElement.appendChild(button)
+      button.innerText = answer.text;
+      button.classList.add('btn');
+      button.setAttribute("data-value", answer.correct); 
+      button.addEventListener('click', selectAnswer);
+      answerButtonsElement.appendChild(button);
   })
 }; 
 
@@ -47,20 +46,23 @@ function resetState() {
 };
 
  function selectAnswer(e) {
-const selectedButton = e.target;
-console.log(selectedButton); 
-const correct = selectedButton.dataset.correct;
-setStatusClass(document.body, correct);
-Array.from(answerButtonsElement.children).forEach(button => {
-setStatusClass(button, button.dataset.correct)
-})
+const selectedButton = e.target.getAttribute("data-value"); 
+ 
+if (selectedButton === "true") {
+   score++; 
+   console.log (score);
+ }else {
+   console.log ("wrong answer"); 
+ }
+
 
 
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     currentQuestionIndex++
     setNextQuestion()
   } else {
- console.log('game ended');
+    questionElement.innerHTML =  "you are score is " + score + " out of " +  questions.length;  
+ answerButtonsElement.classList.add("hide"); 
   }
  }
 
