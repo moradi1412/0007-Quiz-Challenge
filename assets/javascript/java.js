@@ -103,7 +103,7 @@ localStorage.setItem('finalscore', finalscore);
 function countDown(){
    var timeInterval = setInterval(function() {
     if (timeLeft > 1) {
-      timerEl.textContent = "Timer" + timeLeft;
+      timerEl.textContent = "Timer : " + timeLeft;
       timeLeft--;
     } else {
       timerEl.textContent = '';
