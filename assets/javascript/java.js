@@ -13,6 +13,7 @@ var timerEl = document.getElementById ("count-down");
 let shuffledQuestions, currentQuestionIndex;
 var score= 0; 
 var timeLeft = 60;
+var playerName;   
 
 startButton.addEventListener('click', startGame);
 
@@ -92,12 +93,12 @@ function clearStatusClass(element) {
   element.classList.remove('wrong')
 }; 
 
-function save_data (){ 
-var playerName = document.querySelector("#player_name").value; 
-var finalscore = score; 
-localStorage.setItem('playerName', playerName);
-localStorage.setItem('finalscore', finalscore);
+function save_data (){
 
+  var player_result = [
+    {playerName: document.querySelector ("#player_name").value}, 
+    {score: score}]; 
+  localStorage.setItem('player_result', JSON.stringify(player_result)); 
 }; 
 
 function countDown(){

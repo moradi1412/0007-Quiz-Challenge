@@ -1,8 +1,21 @@
 ulEl = document.getElementById("list");
 
-var player_name = localStorage.getItem("playerName");
-var finalscore = localStorage.getItem('finalscore');
+var load_save = () => {
+    var saved = JSON.parse(localStorage.getItem("player_result")) || [];
+    if(saved)
+    {
+        display_scores(saved);
+    }
+}
 
-itemEl = document.createElement("li");
-itemEl.textContent = "Player: " + player_name + " - " + "Score: " + finalscore ; 
-ulEl.appendChild(itemEl);
+var display_scores = array => {
+    for(let i = 0; i<array.length; i++)
+    {
+        itemEl = document.createElement("li");
+        itemEl.textContent = "Player: " + array[i].playerName + " - " + "Score: " + array[i].score;
+        ulEl.appendChild(itemEl);
+    }
+}; 
+
+load_save();
+
