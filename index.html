@@ -14,12 +14,12 @@
         <img src="./assets/img/stock-vector-quiz-logo-design-747383050.jpg" alt="logo" srcset="">
         <h1 href="/">Quiz Challenge</h1>
         <nav>
-            <a href="/">View HighScore</a>
+            <a href="highscore.html">View HighScore</a>
         </nav>
     </header>
     <main>
         
-        <h2 id="count-down">Timer : 75</h2>
+        <h2 id="count-down"></h2>
         <section id="questions-container" class="question-content">
             <p id="rules">    
                 Answer the code-related questions with the time limit. 
@@ -39,6 +39,7 @@
             <label class="player-label" for="player-name"> Enter your name </label>
             <input class="player-input" id="player_name" type="text" name=player-input placeholder="Enter your name">
             <button id="submitBtn" class="btn">Submit</button>
+            <button onclick="location.href='./highscore.html' " id="Viewscore">View Scores!</button>
         </div>
         </section>
         <script src="./assets/javascript/java.js"></script>

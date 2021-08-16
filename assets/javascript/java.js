@@ -5,12 +5,14 @@ const answerButtonsElement = document.getElementById('answer-btns');
 const rules = document.getElementById('rules'); 
 const nameLabel = document.getElementById ('player-info'); 
 const submitbtn = document.getElementById("submitBtn"); 
+var timerEl = document.getElementById ("count-down");
 
 
 
 
 let shuffledQuestions, currentQuestionIndex;
 var score= 0; 
+var timeLeft = 60;
 
 startButton.addEventListener('click', startGame);
 
@@ -22,7 +24,8 @@ function startGame() {
   currentQuestionIndex = 0;
   questionElement.classList.remove('hide');
   answerButtonsElement.classList.remove('hide');
-  setNextQuestion()
+  countDown(); 
+  setNextQuestion();
 }
 
 function setNextQuestion() {
@@ -38,7 +41,7 @@ function showQuestion(question) {
       button.innerText = answer.text;
       button.classList.add('btn');
       button.setAttribute("data-value", answer.correct); 
-      button.addEventListener('click', selectAnswer);
+      button.addEventListener('click', selectAnswerwithTimer);
       answerButtonsElement.appendChild(button);
   })
 }; 
@@ -50,13 +53,14 @@ function resetState() {
   }
 };
 
- function selectAnswer(e) {
+ function selectAnswerwithTimer(e) {
 const selectedButton = e.target.getAttribute("data-value"); 
  
 if (selectedButton === "true") {
    score++; 
    console.log (score);
  }else {
+   timeLeft = timeLeft - 10 ;
    console.log ("wrong answer"); 
  }
 
@@ -88,12 +92,29 @@ function clearStatusClass(element) {
   element.classList.remove('wrong')
 }; 
 
-submitbtn.addEventListener('click', () => {     
-  var playerName = document.querySelector("#player_name").value; 
-  var finalscore = score; 
-  localStorage.setItem('playerName', playerName);
-  localStorage.setItem('finalscore', finalscore);
-}); 
+function save_data (){ 
+var playerName = document.querySelector("#player_name").value; 
+var finalscore = score; 
+localStorage.setItem('playerName', playerName);
+localStorage.setItem('finalscore', finalscore);
+
+}; 
+
+function countDown(){
+   var timeInterval = setInterval(function() {
+    if (timeLeft > 1) {
+      timerEl.textContent = "Timer" + timeLeft;
+      timeLeft--;
+    } else {
+      timerEl.textContent = '';
+      clearInterval(timeInterval);
+    }
+  }, 1000);
+}; 
+
+
+submitbtn.addEventListener('click', save_data); 
+
 
 const questions = [
   {
